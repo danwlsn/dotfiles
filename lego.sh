@@ -33,7 +33,7 @@ done
 echo "Installing homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo "Installing brews from Brewfile"
-brew bundle
+brew bundle install
 
 # base16 bullshit
 echo "Cloning base16 shell"
