@@ -165,3 +165,5 @@
 	required = true
 [github]
 	user = danwlsn
+[init]
+	defaultBranch = main

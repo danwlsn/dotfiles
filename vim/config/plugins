@@ -19,6 +19,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
+Plug 'tomlion/vim-solidity'
 
 " Initialize plugin system
 call plug#end()
