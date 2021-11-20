@@ -1,0 +1,6 @@
+neovim
+tmux
+emacs (doom)
+zsh
+docker
+ripgrep
