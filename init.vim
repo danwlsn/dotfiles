@@ -3,11 +3,7 @@
 
 " //
 " Section: plugins
-
-call plug#begin()
-Plug 'pangloss/vim-javascript'    " JavaScript support
-Plug 'leafgarland/typescript-vim' " TypeScript syntax
-call plug#end()
+" nothing to display
 
 " //
 " Section: default
