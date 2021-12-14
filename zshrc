@@ -1,8 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Brew on path
+export PATH=/opt/homebrew/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH="/home/wilson/.oh-my-zsh"
+export ZSH="/Users/wilson/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +73,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(python pipenv pyenv pip zsh-syntax-highlighting)
+plugins=(python pipenv pyenv pip)
 
 source $ZSH/oh-my-zsh.sh
 
