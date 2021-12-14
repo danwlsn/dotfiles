@@ -31,6 +31,8 @@ done
 
 echo "Moving old init.vim file"
 mv ~/.config/nvim/init.vim $olddir
+echo "Creating nvim config folder"
+mkdir -p ~/.config/nvim
 echo "Symlinking init.vim"
 ln -s "$dir/init.vim" ~/.config/nvim/init.vim
 
