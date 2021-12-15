@@ -6,6 +6,11 @@
 
 [Install docker](https://docs.docker.com/engine/install/)
 
+- [ ] TODO: more deps
+  - node
+  - python
+  - clojure
+
 
 ### Linux
 ```bash
@@ -63,8 +68,14 @@ chmod +x install.sh
 ### Colours
 [Base16 gallery](https://belak.github.io/base16-emacs/#sec-1-1)
 
+**Current colours:**
+- Base16-eighties in the terminal
+- Base16-woodland in the editor
+
 
 ``` bash
 git clone https://github.com/chriskempson/base16-iterm2.git ~/base16-iterm2
 ```
+
+[Jetbrains mono font as well](https://www.jetbrains.com/lp/mono/)
 
