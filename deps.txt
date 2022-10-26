@@ -4,3 +4,5 @@ emacs (doom)
 zsh
 docker
 ripgrep
+pandoc
+yarn
