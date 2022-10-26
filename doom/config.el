@@ -21,18 +21,47 @@
 ;; font string. You generally only need these two:
  (setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'medium))
 
+;; Adjust default frame size
+(setq initial-frame-alist
+      (append initial-frame-alist
+              '((left   . 33)
+                (top    . 0)
+                (width  . 140)
+                (height . 50))))
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'base16-woodland)
 
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; Replace doom capture template for todos
+(after! org
+  (setf (alist-get "t" org-capture-templates nil nil #'equal)
+        '("new custom todo" entry
+          (file+headline +org-capture-todo-file "Inbox")
+          "* TODO %?\n%i\n%a" :prepend t)))
+
+;; Hide signs like "~" or "_" or "*"
+(setq org-hide-emphasis-markers t)
+
+;; Increase indenation in org-indent
+(setq org-indent-indentation-per-level 6)
+(setq org-indent-boundary-char ?　)
+
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
+
+;; Enable auto save and backups
+(setq auto-save-default t
+      make-backup-files t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
