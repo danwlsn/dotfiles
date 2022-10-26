@@ -79,6 +79,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -137,3 +142,24 @@ fi
 
 # source ~/.zshrc
 alias sz="source $HOME/.zshrc"
+
+# send notification to macos
+function notif() {
+  osascript -e "display notification \"$2\" with title \"$1\""
+}
+
+# pomo timer
+function pomo() {
+    arg1=$1
+    shift
+    args="$*"
+
+    min=${arg1:?Example: pomo 15 Take a break}
+    sec=$((min * 60))
+    msg="${args:?Example: pomo 15 Take a break}"
+
+    while true; do
+        date '+%H:%M' && sleep "${sec:?}" && notif "pomo" "${msg:?}"
+        date '+%H:%M' && sleep "300" && notif "pomo" "Back to work"
+    done
+}
