@@ -45,7 +45,7 @@
 ;; Replace doom capture template for todos
 (after! org
   (setf (alist-get "t" org-capture-templates nil nil #'equal)
-        '("new custom todo" entry
+        '("New todo" entry
           (file+headline +org-capture-todo-file "Inbox")
           "* TODO %?\n%i\n%a" :prepend t)))
 
