@@ -26,8 +26,8 @@
       (append initial-frame-alist
               '((left   . 33)
                 (top    . 0)
-                (width  . 140)
-                (height . 50))))
+                (width  . 120)
+                (height . 47))))
 
 ;; Set scroll margins on top and bottom
 (setq scroll-margin 32)
