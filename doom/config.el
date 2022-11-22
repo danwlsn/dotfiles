@@ -35,7 +35,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'base16-woodland)
+;; themes I like: woodland, pico, seti, summerfruit-dark, solarfare, materia, isotope, irblack, harmonic-dark, chalk
+(setq doom-theme 'base16-harmonic-dark)
 
 
 ;; If you use `org' and don't want your org files in the default location below,
