@@ -66,7 +66,7 @@ chmod +x install.sh
 ```
 
 ### Colours
-[Base16 gallery](https://belak.github.io/base16-emacs/#sec-1-1)
+[Base16 gallery](https://tinted-theming.github.io/base16-emacs/)
 
 **Current colours:**
 - Base16-eighties in the terminal
