@@ -6,3 +6,4 @@ docker
 ripgrep
 pandoc
 yarn
+cmake
