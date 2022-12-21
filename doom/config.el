@@ -19,7 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
- (setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'medium))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight 'semibold)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 20 :weight 'light))
 
 ;; Adjust default frame size
 (setq initial-frame-alist
@@ -36,7 +37,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; themes I like: woodland, pico, seti, summerfruit-dark, solarfare, materia, isotope, irblack, harmonic-dark, chalk
-(setq doom-theme 'base16-harmonic-dark)
+(setq doom-theme 'base16-summerfruit-dark)
 
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -51,12 +52,13 @@
           "* TODO %?\n%i\n%a" :prepend t)))
 
 ;; Hide signs like "~" or "_" or "*"
-(setq org-hide-emphasis-markers t)
+;; (setq org-hide-emphasis-markers t)
 
 ;; Increase indenation in org-indent
-(setq org-indent-indentation-per-level 6)
+(setq org-indent-indentation-per-level 5)
 (setq org-indent-boundary-char ?　)
-
+(setq org-startup-indented t)
+(setq org-pretty-entities t)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -67,6 +69,12 @@
 (setq auto-save-default t
       make-backup-files t)
 
+
+;; Company disable in org mode
+(setq company-global-modes '(not org-mode))
+
+;; Allow hash to be entered
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
