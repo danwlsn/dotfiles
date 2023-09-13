@@ -7,3 +7,6 @@ ripgrep
 pandoc
 yarn
 cmake
+pyenv
+tree-sitter
+jq
