@@ -2,28 +2,35 @@
 
 ## Set up instructions
 
-### Install dependiecies
+### Install tools
 
-[Install docker](https://docs.docker.com/engine/install/)
+- [Install docker](https://docs.docker.com/engine/install/)
+- [Install notes](https://apps.apple.com/gb/app/bear-markdown-notes/id1091189122?mt=12)
+- [Install browser](https://arc.net)
+- [Install terminal](https://iterm2.com/downloads.html)
+- [Install music](https://www.spotify.com/de-en/download/other/)
 
-- [ ] TODO: more deps
-  - node
-  - python
-  - clojure
+
+### ssh key permisions
+
+``` bash
+chmod 700 ~/.ssh
+chmod 644 ~/.ssh/id_rsa.pub
+chmod 600 ~/.ssh/id_rsa
+```
 
 
 ### Linux
 ```bash
 # apt-get deps.txt
-sudo apt-get install neovim tmux zsh ripgrep emacs
+sudo apt-get install neovim tmux zsh ripgrep emacs grep
 ```
 
 ### Mac
 ```bash
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# brew deps.txt
-brew install neovim tmux zsh ripgrep
+xargs brew install < deps.txt
 ```
 
 ### Emacs
@@ -36,10 +43,8 @@ brew install coreutils fd
 xcode-select --install
 brew tap railwaycat/emacsmacport
 brew install emacs-mac --with-modules
-ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+cp /opt/homebrew/opt/emacs-mac/Emacs /Applications/Emacs.app
 ```
-
-- [ ] TODO: update symlink, not sure if this is right
 
 #### Doom 
 ```bash
@@ -47,8 +52,6 @@ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs.app
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 ```
-
-- [x] TODO: repo for doom config
 
 
 ### Oh My ZSH
