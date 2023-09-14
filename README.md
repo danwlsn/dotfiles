@@ -9,6 +9,7 @@
 - [Install browser](https://arc.net)
 - [Install terminal](https://iterm2.com/downloads.html)
 - [Install music](https://www.spotify.com/de-en/download/other/)
+- [Install scroll reverser](https://pilotmoon.com/scrollreverser/)
 
 
 ### ssh key permisions
