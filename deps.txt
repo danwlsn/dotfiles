@@ -1,12 +1,9 @@
 neovim
 tmux
-emacs (doom)
 zsh
-docker
 ripgrep
-pandoc
-yarn
 cmake
 pyenv
 tree-sitter
 jq
+grep
