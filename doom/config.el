@@ -19,9 +19,6 @@
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
-(setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'semibold)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 20 :weight 'light))
-
 ;; Adjust default frame size
 (setq initial-frame-alist
       (append initial-frame-alist
