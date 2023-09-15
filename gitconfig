@@ -162,3 +162,5 @@
 	user = danwlsn
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
