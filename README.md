@@ -11,6 +11,7 @@
 - [Install music](https://www.spotify.com/de-en/download/other/)
 - [Install scroll reverser](https://pilotmoon.com/scrollreverser/)
 - TODO: Text expander
+- TODO: signing keys
 
 
 ### ssh key permisions
