@@ -142,7 +142,7 @@
 [include]
   path = .gitconfig.user
 [user]
-	email = dannywilson32@gmail.com
+	email = dwlsn@pm.me
 	name = Danny Wilson
 [credential]
 	helper = osxkeychain
