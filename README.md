@@ -10,6 +10,7 @@
 - [Install terminal](https://iterm2.com/downloads.html)
 - [Install music](https://www.spotify.com/de-en/download/other/)
 - [Install scroll reverser](https://pilotmoon.com/scrollreverser/)
+- TODO: Text expander
 
 
 ### ssh key permisions
