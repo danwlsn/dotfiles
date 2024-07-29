@@ -135,6 +135,12 @@ alias la="ls -lhA --color=auto --group-directories-first"
 alias mkdir="mkdir -pv"
 alias path='echo -e ${PATH//:/\\n}'
 alias gh="history|grep"
+alias h="fuzzy"
+alias pr="poetry run"
+
+function fuzzy() {
+  cd $(find ~/_ -type d -maxdepth 1 -print | fzf) 
+}
 
 # act as sudo
 if [ $UID -ne 0 ]; then
@@ -167,6 +173,16 @@ function pomo() {
     done
 }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Created by `pipx` on 2024-07-26 08:45:28
+export PATH="$PATH:/Users/dannywilson/.local/bin"
+
+# zfz history
+source <(fzf --zsh)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
