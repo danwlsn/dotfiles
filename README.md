@@ -85,3 +85,6 @@ git clone https://github.com/chriskempson/base16-iterm2.git ~/base16-iterm2
 
 [Jetbrains mono font as well](https://www.jetbrains.com/lp/mono/)
 
+
+## Nice apps
+* [MacOS hidden menu bar](https://github.com/dwarvesf/hidden)
