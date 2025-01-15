@@ -11,6 +11,9 @@ files="zshrc gitconfig tmux.conf" # list of files/folders to symlink in homedir
 
 ##########
 
+# make config dir if doesnt exist
+mkdir -p ~/.config
+
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
 mkdir -p $olddir
@@ -31,10 +34,9 @@ done
 
 echo "Moving old init.vim file"
 mv ~/.config/nvim/init.vim $olddir
-echo "Creating nvim config folder"
-mkdir -p ~/.config/nvim
 echo "Symlinking init.vim"
-ln -s "$dir/init.vim" ~/.config/nvim/init.vim
+ln -s "$dir/nvim/init.vim" ~/.config/nvim/init.vim
+ln -s "$dir/nvim/lua" ~/.config/nvim/lua
 
 echo "Moving old doom.d config"
 mv ~/.doom.d $olddir
