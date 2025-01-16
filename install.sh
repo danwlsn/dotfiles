@@ -35,8 +35,8 @@ done
 echo "Moving old init.vim file"
 mv ~/.config/nvim/init.vim $olddir
 echo "Symlinking init.vim"
-ln -s "$dir/nvim/init.vim" ~/.config/nvim/init.vim
-ln -s "$dir/nvim/lua" ~/.config/nvim/lua
+ln -s "$dir/nvim/init.lua" ~/.config/nvim/init.lua
+ln -s "$dir/nvim/lua" ~/.config/nvim
 
 echo "Moving old doom.d config"
 mv ~/.doom.d $olddir
