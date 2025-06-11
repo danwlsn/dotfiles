@@ -34,7 +34,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;;
-(setq doom-theme 'base16-oxocarbon-dark)
+;;(setq doom-theme 'base16-oxocarbon-dark)
+(setq doom-theme 'base16-tomorrow-night-eighties)
 
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -74,7 +75,7 @@
 (setq company-global-modes '(not org-mode))
 
 ;; Allow hash to be entered
-(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+(global-set-key (kbd "M-3") #'(lambda () (interactive) (insert "#")))
 
 ;; Modeline
 (setq doom-modeline-buffer-file-name-style 'truncate-upto-root)

@@ -20,6 +20,9 @@ return {
     },
     perspective = {
       priority = 'current',
+    },
+    mappings = {
+      MkdnDecreaseHeading = {'n', '='},
     }
   }
 }
