@@ -38,6 +38,8 @@ vim.keymap.set('n', '<right>', '<nop>')
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = " "
 
+-- " save buffer
+vim.keymap.set('n', '<Leader>s', '<cmd>w<CR>')
 -- " Close buffer
 vim.keymap.set('n', '<Leader>q', '<cmd>bp|bd #<CR>')
 -- " Close window
