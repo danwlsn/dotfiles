@@ -177,7 +177,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Created by `pipx` on 2024-07-26 08:45:28
-export PATH="$PATH:/Users/dannywilson/.local/bin"
+export PATH="$PATH:/Users/$(whoami)/.local/bin"
 
 # zfz history
 source <(fzf --zsh)
@@ -186,3 +186,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/$(whoami)/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/$(whoami)/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/$(whoami)/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/$(whoami)/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

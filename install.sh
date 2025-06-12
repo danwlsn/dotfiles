@@ -34,11 +34,11 @@ done
 
 echo "Moving old init.vim file"
 mv ~/.config/nvim/init.vim $olddir
-echo "Symlinking init.vim"
-ln -s "$dir/nvim/init.lua" ~/.config/nvim/init.lua
-ln -s "$dir/nvim/lua" ~/.config/nvim
+echo "Symlinking nvim"
+ln -s "$dir/nvim" ~/.config/nvim
 
-echo "Moving old doom.d config"
-mv ~/.doom.d $olddir
-echo "Symlinking doom.d config"
-ln -s "$dir/doom" ~/.doom.d
+# no longer using emacs
+# echo "Moving old doom.d config"
+# mv ~/.doom.d $olddir
+# echo "Symlinking doom.d config"
+# ln -s "$dir/doom" ~/.doom.d
