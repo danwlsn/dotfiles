@@ -15,7 +15,7 @@
   # add
   a = add                           # add
   aa = add -A                       # add all
-  chunky = add --patch           # stage commits chunk by chunk
+  chunk = add --patch               # stage commits chunk by chunk
 
   # Fetch
   fa = fetch --all
@@ -37,8 +37,6 @@
 
   # commit
   c = commit                        # commit
-  cm = commit -m                     # commit with message
-  ca = commit -am                   # commit all with message
   amend = commit --amend            # ammend your last commit
 
   # checkout
@@ -67,7 +65,6 @@
 
   # push
   ps = push                         # push
-  ph = push heroku master           # push heroku
   pf = push --force-with-lease      # force push remote branch kindly 
 
   # rebase
