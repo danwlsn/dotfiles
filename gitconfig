@@ -104,14 +104,12 @@
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
   prompt = false
-[mergetool "vimdiff"]
-# TODO: move this over to emacs
-  cmd="vim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
-  keepbackup=false
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE / MERGED"
 [merge]
   summary = true
   verbosity = 1
-  tool = vimdiff
+  tool = nvimdiff
 [apply]
   whitespace = nowarn
 [branch]
@@ -122,7 +120,7 @@
   default = tracking
 [core]
   autocrlf = false
-  editor = vim
+  editor = nvim
 	excludesfile = /Users/wilson/.gitignore_global
 [advice]
   statusHints = false
@@ -131,7 +129,7 @@
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
 	algorithm = patience
-	tool = vimdiff
+	tool = nvimdiff
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
