@@ -68,9 +68,12 @@
   ps = push                         # push
   pf = push --force-with-lease      # force push remote branch kindly 
 
+  # fixup
+  fix = !git log --color --format='%C(white)%h - %C(green)%cs - %C(blue)%s%C(red)%d' | fzf --ansi --no-sort --preview='git show --color $(echo {} | cut -c -7)' | cut -c -7 | xargs git commit --fixup
   # rebase
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
+  ra = !git log --color --format='%C(white)%h - %C(green)%cs - %C(blue)%s%C(red)%d' | fzf --ansi --no-sort --preview='git show --color $(echo {} | cut -c -7)' | cut -c -7 | xargs -I "{}" git rebase -i --autosquash {}~1
 
   # remote
   r = remote -v                     # show remotes (verbose)
