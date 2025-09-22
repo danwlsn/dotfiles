@@ -1,17 +1,6 @@
-# .dotfiles round 2
+# .dotfiles
 
 ## Set up instructions
-
-### Install tools
-
-- [Install docker](https://docs.docker.com/engine/install/)
-- [Install notes](https://apps.apple.com/gb/app/bear-markdown-notes/id1091189122?mt=12)
-- [Install browser](https://arc.net)
-- [Install terminal](https://iterm2.com/downloads.html)
-- [Install music](https://www.spotify.com/de-en/download/other/)
-- [Install scroll reverser](https://pilotmoon.com/scrollreverser/)
-- TODO: Text expander
-- TODO: signing keys
 
 
 ### ssh key permisions
@@ -25,35 +14,19 @@ chmod 600 ~/.ssh/id_rsa
 
 ### Linux
 ```bash
-# apt-get deps.txt
-sudo apt-get install neovim tmux zsh ripgrep emacs grep
+# apt-get Brewfile
+sudo apt install neovim tmux zsh ripgrep grep docker fd pyenv uv # ...
 ```
+
 
 ### Mac
 ```bash
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-xargs brew install < deps.txt
-```
+brew bundle --all
 
-### Emacs
-#### Install on macOS
-[docs](https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#on-macos)
-
-```bash
-brew install coreutils fd
-# Installs clang
-xcode-select --install
-brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-modules
-cp /opt/homebrew/opt/emacs-mac/Emacs /Applications/Emacs.app
-```
-
-#### Doom 
-```bash
-# Install doom emacs
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+# fix the dock
+./bin/defaults.sh
 ```
 
 
