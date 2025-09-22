@@ -62,6 +62,8 @@ alias sz="source $HOME/.zshrc"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# source venv
+alias sv="source ./venv/bin/activate"
 
 # Created by `pipx` on 2024-07-26 08:45:28
 export PATH="$PATH:/Users/$(whoami)/.local/bin"
