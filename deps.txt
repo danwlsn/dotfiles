@@ -1,9 +1,0 @@
-neovim
-tmux
-zsh
-ripgrep
-cmake
-pyenv
-tree-sitter
-jq
-grep
