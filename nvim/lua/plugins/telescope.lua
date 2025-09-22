@@ -13,6 +13,6 @@ return {
     { '<leader>fh', function() require('telescope.builtin').help_tags() end, desc = 'Telescope help tags' },
     { '<leader>fq', function() require('telescope.builtin').quickfix() end, desc = 'Telescope quickfix' },
     { '<leader>fr', function() require('telescope.builtin').lsp_references() end, desc = 'Telescope LSP Reference' },
-    { '<leader>fd', function() require('telescope.builtin').lsp_definition() end, desc = 'Telescope LSP Definition' },
+    { '<leader>fd', function() require('telescope.builtin').lsp_definitions() end, desc = 'Telescope LSP Definition' },
   }
 }
