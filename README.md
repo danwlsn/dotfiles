@@ -6,9 +6,7 @@
 ### ssh key permisions
 
 ``` bash
-chmod 700 ~/.ssh
-chmod 644 ~/.ssh/id_rsa.pub
-chmod 600 ~/.ssh/id_rsa
+make fix-ssh-perms
 ```
 
 
@@ -21,12 +19,7 @@ sudo apt install neovim tmux zsh ripgrep grep docker fd pyenv uv # ...
 
 ### Mac
 ```bash
-# install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew bundle --all
-
-# fix the dock
-./bin/defaults.sh
+make macos-setup # install homebrew, brews and run ./bin/defaults.sh
 ```
 
 
@@ -34,14 +27,13 @@ brew bundle --all
 [Docs](https://ohmyz.sh/#install)
 
 ``` bash
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+make ohmyzsh
 ```
 
 ### Symlink files and folders
 
 ```bash
-chmod +x install.sh
-./install.sh
+make # symlink dotfiles and config
 ```
 
 ### Colours

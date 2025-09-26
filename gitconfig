@@ -38,6 +38,8 @@
   # commit
   c = commit                        # commit
   amend = commit --amend            # ammend your last commit
+  ca = commit --amend            # ammend your last commit
+
 
   # checkout
   co = checkout                     # checkout
