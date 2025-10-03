@@ -1,8 +1,7 @@
 return {
-  'neovim/nvim-lspconfig', tag = 'v1.3.0',
+  'neovim/nvim-lspconfig', tag = 'v2.5.0',
   config = function()
-    require'lspconfig'.pyright.setup{
-      capabilities = capabilities
-    }
+    vim.lsp.enable('pyright')
+    vim.lsp.enable('gopls')
   end,
 }
