@@ -43,13 +43,17 @@ alias l="ls -lh --color=auto --group-directories-first"
 alias la="ls -lhA --color=auto --group-directories-first"
 alias mkdir="mkdir -pv"
 alias path='echo -e ${PATH//:/\\n}'
+alias pr="poetry run"
 
 alias h="fuzzy"
-alias pr="poetry run"
 
 function fuzzy() {
   cd $(find ~/_ -type d -maxdepth 1 -print | fzf) 
 }
+
+# git
+alias gs="git branch | fzf --preview 'git log -p main..{-1} --color=always {-1}' | cut -c 3- | xargs git switch"
+alias gbd="git branch | fzf --preview 'git log -p main..{-1} --color=always {-1}' | cut -c 3- | xargs git branch -d"
 
 # act as sudo
 if [ $UID -ne 0 ]; then
