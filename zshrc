@@ -30,7 +30,7 @@ alias tatt="tmux attach-session -t "
 alias td="tmux detach"
 alias tls="tmux ls"
 alias tkill="tmux kill-session -t "
-alias tmk='tmux ls | awk '{print $1}' | sed 's/://g' | xargs -I{} tmux kill-session -t {}'
+alias to='tmux ls | fzf | cut -d: -f1 | xargs -I {} tmux switch-client -t {}'
 
 function new-tmux-from-dir-name {
   tmux new-session -As `basename $PWD`
