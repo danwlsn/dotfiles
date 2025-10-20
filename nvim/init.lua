@@ -57,3 +57,6 @@ vim.keymap.set('n', '<Leader>/', '<cmd>nohlsearch<CR>')
 
 -- " Ctrl - g for escape
 vim.keymap.set('n', '<C-g>', '<esc>')
+
+-- " Leader fx for floating diagnostic
+vim.keymap.set('n', '<Leader>fx', vim.diagnostic.open_float)
