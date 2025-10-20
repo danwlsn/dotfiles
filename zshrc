@@ -96,3 +96,6 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # local secrets for api keys
 source ~/dotfiles/secrets
+
+# bat - cat with syntax
+export BAT_PAGING="always"
