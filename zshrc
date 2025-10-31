@@ -51,9 +51,15 @@ function fuzzy() {
   cd $(find ~/_ -type d -maxdepth 1 -print | fzf) 
 }
 
+alias mcd="mcd"
+function mcd() {
+  mkdir -p $1; cd $1
+}
+
 # git
 alias gs="git branch | fzf --preview 'git log -p main..{-1} --color=always {-1}' | cut -c 3- | xargs git switch"
 alias gbd="git branch | fzf --preview 'git log -p main..{-1} --color=always {-1}' | cut -c 3- | xargs git branch -d"
+alias g="git"
 
 # act as sudo
 if [ $UID -ne 0 ]; then
