@@ -14,5 +14,6 @@ return {
     { '<leader>fq', function() require('telescope.builtin').quickfix() end, desc = 'Telescope quickfix' },
     { '<leader>fr', function() require('telescope.builtin').lsp_references() end, desc = 'Telescope LSP Reference' },
     { '<leader>fd', function() require('telescope.builtin').lsp_definitions() end, desc = 'Telescope LSP Definition' },
+    { '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end, desc = 'Telescope LSP Documetn Symbols' },
   }
 }
