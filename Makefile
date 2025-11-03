@@ -4,7 +4,7 @@ FILES := zshrc gitconfig tmux.conf
 SYMLINKS := $(patsubst %,$(DEST_DIR)/.%,$(FILES))
 
 .PHONY: all macos-brew ohmyzsh fix-ssh-perms
-all: $(SYMLINKS) ~/.config/nvim
+all: $(SYMLINKS) ~/.config/nvim ~/.config/ghostty
 
 $(DEST_DIR)/.%: $(DOTFILES_DIR)/%
 	@echo "🔗 Linking $< to $@"
@@ -12,7 +12,11 @@ $(DEST_DIR)/.%: $(DOTFILES_DIR)/%
 
 ~/.config/nvim: nvim
 	@echo "🔗 Linking $< to $@"
-	@ln -sf $< $@
+	@ln -sf "$(DOTFILES_DIR)/$<" $@
+
+~/.config/ghostty: ghostty
+	@echo "🔗 Linking $< to $@"
+	@ln -sf "$(DOTFILES_DIR)/$<" $@
 
 macos-setup:
 	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

@@ -1,0 +1,5 @@
+# ghostty confi# ghostty configg
+theme = Black Metal (Mayhem)
+font-size = 15
+window-subtitle = false
+mouse-scroll-multiplier=1
