@@ -37,7 +37,7 @@ make # symlink dotfiles and config
 ```
 
 ### Colours
-[Base16 gallery](https://tinted-theming.github.io/base16-emacs/)
+[Base16 galery](https://tinted-theming.github.io/base16-emacs/)
 
 **Current colours:**
 - Base16-eighties in the terminal
