@@ -18,7 +18,11 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
--- Keymaps
+vim.opt.spell = true
+vim.opt.spelllang = "en_gb"
+
+
+-- Key maps
 -- " Better split movement
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
 vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
@@ -52,7 +56,7 @@ vim.keymap.set('n', '<Leader>x', '<cmd>close<CR>')
 vim.keymap.set('n', '<Leader>p', '<cmd>bn<CR>')
 vim.keymap.set('n', '<Leader>o', '<cmd>bp<CR>')
 
--- " Clear search highligh on esc
+-- " Clear search highlight on esc
 vim.keymap.set('n', '<Leader>/', '<cmd>nohlsearch<CR>')
 
 -- " Ctrl - g for escape
