@@ -4,7 +4,7 @@ return {
     require("nvim-treesitter.configs").setup({
       -- A list of parser names, or "all"
       ensure_installed = {
-        "vimdoc", "javascript", "tsx", "python", "lua", "vim", "bash", "vimdoc", "query", "json", "yaml", "terraform"
+        "vimdoc", "javascript", "tsx", "python", "lua", "vim", "bash", "vimdoc", "query", "json", "yaml", "terraform", "jinja"
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -22,5 +22,6 @@ return {
         enable = true,
       }
     })
+    vim.treesitter.language.register('jinja', 'html')
   end
 }

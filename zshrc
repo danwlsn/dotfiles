@@ -39,8 +39,8 @@ function new-tmux-from-dir-name {
 # misc
 alias c="clear"
 alias tf="terraform"
-alias l="ls -lh --color=auto --group-directories-first"
-alias la="ls -lhA --color=auto --group-directories-first"
+alias l="ls -lh --color=auto"
+alias la="ls -lhA --color=auto"
 alias mkdir="mkdir -pv"
 alias path='echo -e ${PATH//:/\\n}'
 alias pr="poetry run"
@@ -105,3 +105,51 @@ source ~/dotfiles/secrets
 
 # bat - cat with syntax
 export BAT_PAGING="always"
+
+# gpg
+export GPG_TTY=$(tty)
+
+# fuzzy find git worktrees
+gwcd() {
+  local dir
+  dir=$(git worktree list | fzf --height=40% --reverse | awk '{print $1}')
+  [ -n "$dir" ] && cd "$dir" || echo "No worktree selected"
+}
+
+# create a git worktree and open opencode in a new tmux session
+ocw() {
+  local name="$1"
+
+  if [[ -z "$name" ]]; then
+    echo "Usage: ocw <worktree-name>"
+    return 1
+  fi
+
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [[ -z "$repo_root" ]]; then
+    echo "ocw: not inside a git repository"
+    return 1
+  fi
+
+  local project_name
+  project_name=$(basename "$repo_root")
+
+  local worktree_path="$repo_root/.worktrees/$name"
+  local branch_name="worktree-$name"
+  local session_name="${project_name}_worktree-${name}"
+
+  if [[ -d "$worktree_path" ]]; then
+    echo "ocw: worktree '$name' already exists at $worktree_path"
+    return 1
+  fi
+
+  echo "Creating worktree '$name' at $worktree_path..."
+  git worktree add -b "$branch_name" "$worktree_path" || return 1
+
+  echo "Creating tmux session '$session_name'..."
+  tmux new-session -ds "$session_name" -c "$worktree_path" "opencode"
+
+  echo "Done. Attach with: tmux attach -t $session_name"
+}
+

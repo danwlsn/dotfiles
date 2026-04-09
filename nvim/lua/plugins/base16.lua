@@ -1,7 +1,7 @@
 return {
   'RRethy/base16-nvim',
   config = function()
-    vim.cmd('colorscheme base16-black-metal-mayhem')
+    vim.cmd('colorscheme base16-tomorrow-night-eighties')
 
     -- Make spell check highlighting more visible
     vim.api.nvim_set_hl(0, 'SpellBad', {
