@@ -1,5 +1,12 @@
 # .dotfiles
 
+## TODO:
+- [ ] Move fix ssh perms out of make and into readme
+- [ ] Move setup brew out of make and into readme
+- [ ] Add command to install drive and 1password
+- [ ] librewolf `brew reinstall librewolf --no-quarantine`
+
+
 ## Set up instructions
 
 

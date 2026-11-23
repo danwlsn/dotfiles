@@ -5,7 +5,7 @@ FILES := zshrc gitconfig tmux.conf
 SYMLINKS := $(patsubst %,$(DEST_DIR)/.%,$(FILES))
 
 .PHONY: all macos-brew ohmyzsh fix-ssh-perms
-all: $(SYMLINKS) ~/.config/nvim ~/.config/ghostty ~/.config/herdr/config.toml
+all: $(SYMLINKS) ~/.config/nvim ~/.config/ghostty ~/.config/herdr/config.toml ~/.config/rex
 
 $(DEST_DIR)/.%: $(DOTFILES_DIR)/%
 	@echo "🔗 Linking $< to $@"
@@ -21,6 +21,8 @@ $(DEST_DIR)/.%: $(DOTFILES_DIR)/%
 
 ~/.config/herdr/config.toml: herdr/config.toml
 	@mkdir -p ~/.config/herdr
+
+~/.config/rex: rex
 	@echo "🔗 Linking $< to $@"
 	@ln -sf "$(DOTFILES_DIR)/$<" $@
 
