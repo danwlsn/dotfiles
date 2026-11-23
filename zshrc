@@ -8,10 +8,10 @@ export PATH=/opt/homebrew/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
-ZSH_THEME="bureau"
+ZSH_THEME=""   # custom portable prompt below (replaces bureau)
 
 COMPLETION_WAITING_DOTS="true"
-plugins=(python pipenv pyenv pip)
+plugins=(python pyenv)
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -20,7 +20,19 @@ eval "$(pyenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 
+# Portable prompt: no COLUMNS math, no RPROMPT, no git status calls
+autoload -Uz vcs_info add-zsh-hook
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:git:*' actionformats ' (%b|%a)'
+add-zsh-hook precmd vcs_info
+setopt prompt_subst
+PROMPT='%F{8}%*%f %F{blue}%~%f%F{yellow}${vcs_info_msg_0_}%f %(?..%F{red}[%?]%f )%(!.#.$) '
+RPROMPT=''
+
 # NeoVim
+export EDITOR="nvim"
+export VISUAL="nvim"
 alias n="nvim"
 alias sn="sudo nvim"
 
@@ -107,7 +119,7 @@ source ~/dotfiles/secrets
 export BAT_PAGING="always"
 
 # gpg
-export GPG_TTY=$(tty)
+export GPG_TTY=$(tty 2>/dev/null)
 
 # fuzzy find git worktrees
 gwcd() {

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:herdr.dev)",
+      "Bash(make ~/.config/herdr)",
+      "Read(//Users/danny.wilson/.config/herdr/**)",
+      "Bash(make ~/.config/herdr/config.toml)"
+    ]
+  }
+}

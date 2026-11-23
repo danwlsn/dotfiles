@@ -1,0 +1,7 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+e"
+
+[theme]
+name = "base16-eighties"

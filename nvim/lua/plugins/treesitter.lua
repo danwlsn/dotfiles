@@ -1,27 +1,91 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  config = function()
-    require("nvim-treesitter.configs").setup({
-      -- A list of parser names, or "all"
-      ensure_installed = {
-        "vimdoc", "javascript", "tsx", "python", "lua", "vim", "bash", "vimdoc", "query", "json", "yaml", "terraform", "jinja"
-      },
+  commit = "90cd658",
+  main = "nvim-treesitter",
+  -- build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  init = function()
+    local highlight = function(bufnr, lang)
+      -------------------[ treesitter highlights ]-------------------------------
+      if not vim.treesitter.language.add(lang) then
+        return vim.notify(
+          string.format("Treesitter cannot load parser for language: %s", lang),
+          vim.log.levels.INFO,
+          { title = "Treesitter" }
+        )
+      end
+      vim.treesitter.start(bufnr)
+    end
 
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        local ft = vim.bo.filetype
+        local bt = vim.bo.buftype
+        local buf = args.buf
 
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
-      auto_install = true,
+        if bt ~= "" then
+          return
+        end -- don't run further.
 
-      indent = {
-        enable = true
-      },
+        local ok, treesitter = pcall(require, "nvim-treesitter")
+        if not ok then
+          return
+        end
 
-      highlight = {
-        enable = true,
-      }
+        ---------------------[ treesitter indent ]-------------------------------
+
+        if not vim.tbl_contains({ "python", "html", "yaml", "markdown" }, ft) then
+          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end
+
+        --------------------[ treesitter parsers ]-------------------------------
+        if vim.fn.executable "tree-sitter" ~= 1 then
+          vim.api.nvim_echo({
+            {
+              "tree-sitter CLI not found. Parsers cannot be installed.",
+              "ErrorMsg",
+            },
+          }, true, {})
+          return false
+        end
+
+        if not vim.treesitter.language.get_lang(ft) then
+          return
+        end
+
+        if vim.list_contains(treesitter.get_installed(), ft) then
+          highlight(buf, ft)
+        elseif vim.list_contains(treesitter.get_available(), ft) then
+          treesitter.install(ft):await(function()
+            highlight(buf, ft)
+          end)
+        end
+      end,
     })
-    vim.treesitter.language.register('jinja', 'html')
-  end
+  end,
+  opts = {
+    install = {
+      "lua",
+      "comment",
+      "markdown",
+      "markdown_inline",
+      "regex",
+      "vimdoc",
+      "python"
+    },
+  },
+  config = function(_, opts)
+    local treesitter = require "nvim-treesitter"
+    treesitter.setup(opts)
+    if vim.fn.executable "tree-sitter" ~= 1 then
+      vim.api.nvim_echo({
+        {
+          "tree-sitter CLI not found. Parsers cannot be installed.",
+          "ErrorMsg",
+        },
+      }, true, {})
+      return false
+    end
+    treesitter.install(opts.install)
+  end,
 }
